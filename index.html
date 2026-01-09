@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>凸优化与最优化导论教程</title>
+  <title id="page-title"></title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="凸优化与最优化导论教程">
+  <meta name="description" id="page-description" content="">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23667eea'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z'/%3E%3C/svg%3E" type="image/svg+xml">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
@@ -15,14 +15,14 @@
       overflow-y: hidden;
     }
     
-    /* Override docsify theme styles */
+    /* Override docsify theme styles | 覆盖docsify主题样式 */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
       color: #4a4a6a !important;
       background-color: #f5f7fa !important;
     }
     
-    /* Main content styles */
+    /* Main content styles | 主要内容样式 */
     .markdown-section {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
       color: #667eea !important;
@@ -30,7 +30,7 @@
       min-height: 100vh;
     }
     
-    /* Headings */
+    /* Headings | 标题样式 */
     .markdown-section h1,
     .markdown-section h2,
     .markdown-section h3,
@@ -45,7 +45,7 @@
       background-clip: text;
     }
     
-    /* Ensure all Markdown content uses the same font */
+    /* Ensure all Markdown content uses the same font | 确保所有Markdown内容使用相同字体 */
     .markdown-section p,
     .markdown-section ul,
     .markdown-section ol,
@@ -57,20 +57,20 @@
       color: #4a4a6a !important;
     }
     
-    /* Code blocks */
+    /* Code blocks | 代码块样式 */
     .markdown-section code {
       font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
       background-color: #f0f0f0 !important;
       color: #333 !important;
     }
     
-    /* Preformatted text */
+    /* Preformatted text | 预格式化文本样式 */
     .markdown-section pre {
       font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
       background-color: #f5f5f5 !important;
     }
     
-    /* Tables */
+    /* Tables | 表格样式 */
     .markdown-section table {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
@@ -85,17 +85,17 @@
       color: #4a4a6a !important;
     }
     
-    /* Links */
+    /* Links | 链接样式 */
     .markdown-section a {
       color: #667eea !important;
     }
     
-    /* Sidebar */
+    /* Sidebar | 侧边栏样式 */
     .sidebar {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     }
     
-    /* Top right watermark with link */
+    /* Top right watermark with link | 右上角带链接的水印 */
     .watermark {
       position: fixed;
       top: 20px;
@@ -136,8 +136,55 @@
     <a href="https://excursion-studio.github.io/index_zh.html" target="_blank"></a>
   </div>
   <script>
+    // Synchronously read the main title from README.md as default | 同步读取README.md的大标题作为默认值
+    let tutorialTitle = '凸优化导论教程'; // Default value, will be overridden below | 默认值，将在下面被覆盖
+    
+    // Use XMLHttpRequest to synchronously read README.md file to get default title | 使用XMLHttpRequest同步读取README.md文件，获取默认标题
+    try {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'README.md', false); // Synchronous request | 同步请求
+      xhr.send();
+      
+      if (xhr.status === 200) {
+        const text = xhr.responseText;
+        // Extract the first line title (line starting with #) | 提取第一行的大标题（以#开头的行）
+        const titleMatch = text.match(/^#\s+(.+)$/m);
+        if (titleMatch) {
+          tutorialTitle = titleMatch[1].trim();
+        }
+      }
+    } catch (error) {
+      console.error('Failed to read README.md synchronously: | 同步读取README.md失败:', error);
+    }
+    
+    // Immediately set page title and description | 立即设置页面标题和描述
+    document.getElementById('page-title').textContent = tutorialTitle;
+    document.getElementById('page-description').content = tutorialTitle;
+    
+    // Asynchronously read README.md again to ensure getting the latest content | 异步方式再次读取README.md，确保获取最新内容
+    (function() {
+      // Use fetch API to read README.md file | 使用fetch API读取README.md文件
+      fetch('README.md')
+        .then(response => response.text())
+        .then(text => {
+          // Extract the first line title (line starting with #) | 提取第一行的大标题（以#开头的行）
+          const titleMatch = text.match(/^#\s+(.+)$/m);
+          if (titleMatch) {
+            tutorialTitle = titleMatch[1].trim();
+            // Update page title | 更新页面中的标题
+            document.getElementById('page-title').textContent = tutorialTitle;
+            document.getElementById('page-description').content = tutorialTitle;
+            // Update docsify configuration name | 更新docsify配置中的name
+            window.$docsify.name = tutorialTitle;
+          }
+        })
+        .catch(error => {
+          console.error('Unable to read README.md file: | 无法读取README.md文件:', error);
+        });
+    })();
+    
     window.$docsify = {
-      name: '凸优化与最优化导论教程',
+      name: tutorialTitle,
       loadSidebar: true,
       subMaxLevel: 3,
       pagination:{
@@ -156,11 +203,11 @@
       plugins: [
         function(hook, vm) {
           hook.beforeEach(function(content) {
-            // 每次开始解析 Markdown 内容时调用
+            // Called before parsing Markdown content each time | 每次开始解析 Markdown 内容时调用
             return content;
           });
           hook.doneEach(function() {
-            // 每次切换页面后滚动到顶部
+            // Scroll to top after each page switch | 每次切换页面后滚动到顶部
             window.scrollTo(0, 0);
           });
         }
@@ -174,7 +221,7 @@
 
   <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
   
-  <!-- Put them above docsify.min.js -->
+  <!-- Put them above docsify.min.js | 将它们放在docsify.min.js上面 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
