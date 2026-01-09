@@ -1,0 +1,10 @@
+- 目录
+- [教程明细](README)
+- [第1章 介绍与预备知识](docs/chapter1_introduction)
+- [第2章 凸集与凸函数基础](docs/chapter2_convex_sets_functions)
+- [第3章 凸优化问题](docs/chapter3_convex_optimization_problems)
+- [第4章 无约束优化算法](docs/chapter4_unconstrained_optimization)
+- [第5章 约束优化算法](docs/chapter5_constrained_optimization)
+- [第6章 对偶理论](docs/chapter6_duality_theory)
+- [第7章 应用案例](docs/chapter7_applications)
+- [第8章 附录与参考资料](docs/chapter8_appendix)

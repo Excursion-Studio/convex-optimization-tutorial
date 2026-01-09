@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>凸优化与最优化导论教程</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="凸优化与最优化导论教程">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23667eea'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z'/%3E%3C/svg%3E" type="image/svg+xml">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+  <style>
+    .katex-display > .katex {
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    
+    /* Override docsify theme styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      color: #4a4a6a !important;
+      background-color: #f5f7fa !important;
+    }
+    
+    /* Main content styles */
+    .markdown-section {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      color: #667eea !important;
+      position: relative;
+      min-height: 100vh;
+    }
+    
+    /* Headings */
+    .markdown-section h1,
+    .markdown-section h2,
+    .markdown-section h3,
+    .markdown-section h4,
+    .markdown-section h5,
+    .markdown-section h6 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      font-weight: 600 !important;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Ensure all Markdown content uses the same font */
+    .markdown-section p,
+    .markdown-section ul,
+    .markdown-section ol,
+    .markdown-section li,
+    .markdown-section blockquote,
+    .markdown-section code,
+    .markdown-section pre {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      color: #4a4a6a !important;
+    }
+    
+    /* Code blocks */
+    .markdown-section code {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+      background-color: #f0f0f0 !important;
+      color: #333 !important;
+    }
+    
+    /* Preformatted text */
+    .markdown-section pre {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+      background-color: #f5f5f5 !important;
+    }
+    
+    /* Tables */
+    .markdown-section table {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+    
+    .markdown-section table th {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      color: #333 !important;
+    }
+    
+    .markdown-section table td {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      color: #4a4a6a !important;
+    }
+    
+    /* Links */
+    .markdown-section a {
+      color: #667eea !important;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+    
+    /* Top right watermark with link */
+    .watermark {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 150px;
+      height: 150px;
+      z-index: 0;
+    }
+    
+    .watermark a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-image: url('decorations/excursion_logo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.3;
+      transition: opacity 0.3s ease;
+    }
+    
+    .watermark a:hover {
+      opacity: 0.5;
+    }
+    
+    .sidebar ul li a {
+      color: #333 !important;
+    }
+    
+    .sidebar ul li.active > a {
+      color: #667eea !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <div class="watermark">
+    <a href="https://excursion-studio.github.io/index_zh.html" target="_blank"></a>
+  </div>
+  <script>
+    window.$docsify = {
+      name: '凸优化与最优化导论教程',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      pagination:{
+        previousText:'上一篇',
+        nextText:'下一篇',
+      },
+      search:{
+        placeholder:'搜索',
+        noData:'找不到结果',
+        paths:['README.md','docs/'],
+        depth:6,
+        uniqueKey:function() {
+          return window.$docsify.name.replace(/\s+/g, '-').toLowerCase();
+        }
+      },
+      plugins: [
+        function(hook, vm) {
+          hook.beforeEach(function(content) {
+            // 每次开始解析 Markdown 内容时调用
+            return content;
+          });
+          hook.doneEach(function() {
+            // 每次切换页面后滚动到顶部
+            window.scrollTo(0, 0);
+          });
+        }
+      ],
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked@3"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+  
+  <!-- Put them above docsify.min.js -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+</body>
+</html>
