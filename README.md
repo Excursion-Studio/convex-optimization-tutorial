@@ -8,14 +8,26 @@
 
 ```
 ├── README.md                                   # 项目说明文档
-├── chapter1_introduction.md                    # 第1章 介绍与预备知识
-├── chapter2_convex_sets_functions.md           # 第2章 凸集与凸函数基础
-├── chapter3_convex_optimization_problems.md    # 第3章 凸优化问题
-├── chapter4_unconstrained_optimization.md      # 第4章 无约束优化算法 
-├── chapter5_constrained_optimization.md        # 第5章 约束优化算法
-├── chapter6_duality_theory.md                  # 第6章 对偶理论
-├── chapter7_applications.md                    # 第7章 应用案例
-└── chapter8_appendix.md                        # 第8章 附录与参考资料
+├── chapter01/                                  # 第1章 目录
+│   └── chapter1_introduction.md                # 第1章 介绍与预备知识
+├── chapter02/                                  # 第2章 目录
+│   └── chapter2_convex_sets_functions.md       # 第2章 凸集与凸函数基础
+├── chapter03/                                  # 第3章 目录
+│   └── chapter3_convex_optimization_problems.md# 第3章 凸优化问题
+├── chapter04/                                  # 第4章 目录
+│   └── chapter4_unconstrained_optimization.md  # 第4章 无约束优化算法
+├── chapter05/                                  # 第5章 目录
+│   └── chapter5_constrained_optimization.md    # 第5章 约束优化算法
+├── chapter06/                                  # 第6章 目录
+│   └── chapter6_duality_theory.md              # 第6章 对偶理论
+├── chapter07/                                  # 第7章 目录
+│   └── chapter7_applications.md                # 第7章 应用案例
+├── chapter08/                                  # 第8章 目录
+│   └── chapter8_appendix.md                    # 第8章 附录与参考资料
+├── decorations/                                # 装饰资源目录
+│   └── excursion_logo.png                      # 标志图片
+├── _sidebar.md                                 # 侧边栏配置文件
+└── index.html                                  # 主HTML文件
 ```
 
 ## 内容概览

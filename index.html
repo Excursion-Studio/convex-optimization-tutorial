@@ -186,7 +186,7 @@
     window.$docsify = {
       name: tutorialTitle,
       loadSidebar: true,
-      basePath: '/convex-optimization-tutorial/', // Set base path for files | 设置文件的基础路径
+      basePath: '', // Set base path for files | 设置文件的基础路径
       subMaxLevel: 3,
       pagination:{
         previousText:'上一篇',
@@ -195,7 +195,7 @@
       search:{
         placeholder:'搜索',
         noData:'找不到结果',
-        paths:['README.md','docs/'],
+        paths:['README.md','chapter01/','chapter02/','chapter03/','chapter04/','chapter05/','chapter06/','chapter07/','chapter08/'],
         depth:6,
         uniqueKey:function() {
           return window.$docsify.name.replace(/\s+/g, '-').toLowerCase();
