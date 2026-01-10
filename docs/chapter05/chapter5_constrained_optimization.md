@@ -91,7 +91,7 @@ $$P = I - A^T (AA^T)^{-1} A$$
 1. 选择初始可行点 $x_0$（满足 $Ax_0 = b$），设置迭代次数 $k=0$。
 2. 计算梯度 $g_k = \nabla f(x_k)$。
 3. 计算投影梯度：$P g_k$。
-4. 如果 $\|P g_k\| \leq \epsilon$，则停止迭代，输出 $x_k$。
+4. 如果 $\lVert P g_k \rVert \leq \epsilon$，则停止迭代，输出 $x_k$。
 5. 沿着投影负梯度方向搜索：$d_k = -P g_k$。
 6. 使用线搜索确定步长 $\alpha_k$，使得 $f(x_k + \alpha_k d_k)$ 最小，同时保持可行性（由于 $d_k$ 位于切空间，所以对于任意 $\alpha_k$，$x_k + \alpha_k d_k$ 都是可行的）。
 7. 更新迭代点：$x_{k+1} = x_k + \alpha_k d_k$。
@@ -203,7 +203,7 @@ Zoutendijk可行方向法是一种经典的可行方向法，其步骤如下：
 
    $$\text{s.t. } \nabla g_i(x_k)^T d \leq 0, \quad i \in I(x_k)$$
 
-   $$\|d\| \leq 1$$
+   $$\lVert d \rVert \leq 1$$
 
 4. 如果最优值 $\geq -\epsilon$，则停止迭代，输出 $x_k$。
 5. 使用线搜索确定步长 $\alpha_k$，使得 $f(x_k + \alpha_k d_k)$ 最小，同时保持可行性。
@@ -228,7 +228,7 @@ $$\text{s.t. } Ax \leq b$$
 
 对于闭凸集 $C$，投影算子 $P_C: \mathbb{R}^n \to C$ 定义为：
 
-$$P_C(x) = \arg\min_{y \in C} \|y - x\|^2$$
+$$P_C(x) = \arg\min_{y \in C} \lVert y - x \rVert^2$$
 
 即 $P_C(x)$ 是 $C$ 中与 $x$ 距离最近的点。
 
@@ -239,7 +239,7 @@ $$P_C(x) = \arg\min_{y \in C} \|y - x\|^2$$
 1. 选择初始可行点 $x_0 \in C$，设置迭代次数 $k=0$。
 2. 计算梯度 $g_k = \nabla f(x_k)$。
 3. 计算搜索方向：$d_k = P_C(x_k - \alpha_k g_k) - x_k$，其中 $\alpha_k$ 是步长。
-4. 如果 $\|d_k\| \leq \epsilon$，则停止迭代，输出 $x_k$。
+4. 如果 $\lVert d_k \rVert \leq \epsilon$，则停止迭代，输出 $x_k$。
 5. 更新迭代点：$x_{k+1} = x_k + d_k$。
 6. 令 $k = k + 1$，返回步骤 2。
 
@@ -387,7 +387,7 @@ $$L_c(x, \lambda) = f(x) - \sum_{j=1}^p \lambda_j h_j(x) + \frac{c}{2} \sum_{j=1
 1. 选择初始点 $x_0$，初始拉格朗日乘数 $\lambda_0$，初始罚参数 $c_0 > 0$，放大因子 $\rho > 1$，设置迭代次数 $k=0$。
 2. 固定 $\lambda_k$ 和 $c_k$，求解无约束优化问题：$x_{k+1} = \arg\min_{x} L_{c_k}(x, \lambda_k)$。
 3. 更新拉格朗日乘数：$\lambda_{k+1} = \lambda_k - c_k h(x_{k+1})$。
-4. 检查收敛条件：如果 $\|h(x_{k+1})\| \leq \epsilon$，则停止迭代，输出 $x_{k+1}$。
+4. 检查收敛条件：如果 $\lVert h(x_{k+1}) \rVert \leq \epsilon$，则停止迭代，输出 $x_{k+1}$。
 5. 否则，更新罚参数：$c_{k+1} = \rho c_k$。
 6. 令 $k = k + 1$，返回步骤 2。
 
@@ -409,7 +409,7 @@ $$\text{s.t. } Ax + Bz = c$$
 
 增广拉格朗日函数定义为：
 
-$$L_\rho(x, z, \lambda) = f(x) + g(z) - \lambda^T (Ax + Bz - c) + \frac{\rho}{2} \|Ax + Bz - c\|^2$$
+$$L_\rho(x, z, \lambda) = f(x) + g(z) - \lambda^T (Ax + Bz - c) + \frac{\rho}{2} \lVert Ax + Bz - c \rVert^2$$
 
 其中 $\rho > 0$ 是罚参数，$\lambda$ 是拉格朗日乘数。
 
@@ -421,7 +421,7 @@ ADMM的算法步骤如下：
 2. **x-更新**：固定 $z_k$ 和 $\lambda_k$，求解：$x_{k+1} = \arg\min_{x} L_\rho(x, z_k, \lambda_k)$。
 3. **z-更新**：固定 $x_{k+1}$ 和 $\lambda_k$，求解：$z_{k+1} = \arg\min_{z} L_\rho(x_{k+1}, z, \lambda_k)$。
 4. **λ-更新**：$\lambda_{k+1} = \lambda_k - \rho (Ax_{k+1} + Bz_{k+1} - c)$。
-5. 检查收敛条件：如果 $\|Ax_{k+1} + Bz_{k+1} - c\| \leq \epsilon$ 且 $\|x_{k+1} - x_k\| \leq \epsilon$ 且 $\|z_{k+1} - z_k\| \leq \epsilon$，则停止迭代，输出 $x_{k+1}$ 和 $z_{k+1}$。
+5. 检查收敛条件：如果 $\lVert Ax_{k+1} + Bz_{k+1} - c \rVert \leq \epsilon$ 且 $\lVert x_{k+1} - x_k \rVert \leq \epsilon$ 且 $\lVert z_{k+1} - z_k \rVert \leq \epsilon$，则停止迭代，输出 $x_{k+1}$ 和 $z_{k+1}$。
 6. 令 $k = k + 1$，返回步骤 2。
 
 #### ADMM的优缺点
@@ -466,8 +466,8 @@ ADMM的算法步骤如下：
 ### 习题5.1
 使用拉格朗日乘数法求解下列问题：
 
-\[\min_{x} x_1^2 + x_2^2\]
+$$\min_{x}  x_1^2 + x_2^2$$
 
-\[\text{s.t. } x_1 + x_2 = 1\]
+$$\text{s.t. } x_1 + x_2 = 1$$
 
 **注**：习题解答见第8章附录。

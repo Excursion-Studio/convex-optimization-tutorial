@@ -12,7 +12,7 @@
 
 1. 选择初始点 $x_0 \in \mathbb{R}^n$，设置迭代次数 $k=0$。
 2. 计算梯度 $g_k = \nabla f(x_k)$。
-3. 如果 $\|g_k\| \leq \epsilon$（$\epsilon$ 是预设的收敛阈值），则停止迭代，输出 $x_k$。
+3. 如果 $\lVert g_k \rVert \leq \epsilon$（$\epsilon$ 是预设的收敛阈值），则停止迭代，输出 $x_k$。
 4. 选择步长 $\alpha_k > 0$。
 5. 更新迭代点：$x_{k+1} = x_k - \alpha_k g_k$。
 6. 令 $k = k + 1$，返回步骤 2。
@@ -57,7 +57,7 @@ Armijo准则的具体步骤如下：
 
 1. 选择初始步长 $\alpha_0 > 0$，参数 $\beta \in (0, 1)$，$\sigma \in (0, 0.5)$。
 2. 令 $\alpha = \alpha_0$。
-3. 检查是否满足：$f(x_k - \alpha \nabla f(x_k)) \leq f(x_k) - \sigma \alpha \|\nabla f(x_k)\|^2$。
+3. 检查是否满足：$f(x_k - \alpha \nabla f(x_k)) \leq f(x_k) - \sigma \alpha \lVert \nabla f(x_k) \rVert^2$。
 4. 如果满足，则接受当前步长 $\alpha$；否则，令 $\alpha = \beta \alpha$，返回步骤 3。
 
 Armijo准则保证了步长足够小，使得目标函数值能够充分下降，同时又不会太小导致收敛速度过慢。
@@ -66,8 +66,8 @@ Armijo准则保证了步长足够小，使得目标函数值能够充分下降�
 
 Wolfe条件是比Armijo准则更严格的步长选择策略，它包含两个条件：
 
-1. **充分下降条件**（与Armijo准则相同）：$f(x_k - \alpha \nabla f(x_k)) \leq f(x_k) - \sigma \alpha \|\nabla f(x_k)\|^2$。
-2. **曲率条件**：$\nabla f(x_k - \alpha \nabla f(x_k))^T \nabla f(x_k) \geq \rho \|\nabla f(x_k)\|^2$，其中 $\rho \in (\sigma, 1)$。
+1. **充分下降条件**（与Armijo准则相同）：$f(x_k - \alpha \nabla f(x_k)) \leq f(x_k) - \sigma \alpha \lVert \nabla f(x_k) \rVert^2$。
+2. **曲率条件**：$\nabla f(x_k - \alpha \nabla f(x_k))^T \nabla f(x_k) \geq \rho \lVert \nabla f(x_k) \rVert^2$，其中 $\rho \in (\sigma, 1)$。
 
 曲率条件保证了步长不会太小，从而提高了算法的收敛速度。
 
@@ -79,7 +79,7 @@ Wolfe条件是比Armijo准则更严格的步长选择策略，它包含两个条
 
 1. 选择初始点 $x_0 \in \mathbb{R}^n$，初始速度 $v_0 = 0$，设置迭代次数 $k=0$。
 2. 计算梯度 $g_k = \nabla f(x_k)$。
-3. 如果 $\|g_k\| \leq \epsilon$，则停止迭代，输出 $x_k$。
+3. 如果 $\lVert g_k \rVert \leq \epsilon$，则停止迭代，输出 $x_k$。
 4. 更新速度：$v_{k+1} = \gamma v_k + \alpha_k g_k$，其中 $\gamma \in [0, 1)$ 是动量系数。
 5. 更新迭代点：$x_{k+1} = x_k - v_{k+1}$。
 6. 令 $k = k + 1$，返回步骤 2。
@@ -142,7 +142,7 @@ $$f(x) = \frac{1}{m} \sum_{i=1}^m f_i(x)$$
 
 1. 选择初始点 $x_0 \in \mathbb{R}^n$，设置迭代次数 $k=0$。
 2. 计算梯度 $g_k = \nabla f(x_k)$。
-3. 如果 $\|g_k\| \leq \epsilon$，则停止迭代，输出 $x_k$。
+3. 如果 $\lVert g_k \rVert \leq \epsilon$，则停止迭代，输出 $x_k$。
 4. 计算海森矩阵 $H_k = \nabla^2 f(x_k)$。
 5. 求解线性方程组：$H_k d_k = -g_k$，得到搜索方向 $d_k$。
 6. 更新迭代点：$x_{k+1} = x_k + d_k$。
@@ -187,7 +187,7 @@ BFGS算法是最常用的拟牛顿法之一，由Broyden、Fletcher、Goldfarb�
 
 1. 选择初始点 $x_0 \in \mathbb{R}^n$，初始近似海森矩阵的逆矩阵 $B_0 = I$（单位矩阵），设置迭代次数 $k=0$。
 2. 计算梯度 $g_k = \nabla f(x_k)$。
-3. 如果 $\|g_k\| \leq \epsilon$，则停止迭代，输出 $x_k$。
+3. 如果 $\lVert g_k \rVert \leq \epsilon$，则停止迭代，输出 $x_k$。
 4. 计算搜索方向：$d_k = -B_k g_k$。
 5. 使用线搜索确定步长 $\alpha_k$。
 6. 更新迭代点：$x_{k+1} = x_k + \alpha_k d_k$。
@@ -246,7 +246,7 @@ $$d_i^T A d_j = 0$$
    a. 使用线搜索确定步长 $\alpha_k$，使得 $f(x_k + \alpha_k d_k)$ 最小。
    b. 更新迭代点：$x_{k+1} = x_k + \alpha_k d_k$。
    c. 计算新的梯度：$g_{k+1} = \nabla f(x_{k+1})$。
-   d. 如果 $\|g_{k+1}\| \leq \epsilon$，则停止迭代，输出 $x_{k+1}$。
+   d. 如果 $\lVert g_{k+1} \rVert \leq \epsilon$，则停止迭代，输出 $x_{k+1}$。
    e. 计算共轭系数：$\beta_k = \frac{g_{k+1}^T g_{k+1}}{g_k^T g_k}$（Fletcher-Reeves公式）。
    f. 更新搜索方向：$d_{k+1} = -g_{k+1} + \beta_k d_k$。
 
@@ -271,7 +271,7 @@ $$d_i^T A d_j = 0$$
 
 如果存在常数 $0 < q < 1$ 和 $k_0 \geq 0$，使得对于所有 $k \geq k_0$，有：
 
-$$\|x_{k+1} - x^*\| \leq q \|x_k - x^*\|$$
+$$\lVert x_{k+1} - x^* \rVert \leq q \lVert x_k - x^* \rVert$$
 
 则称算法线性收敛，收敛速率为 $q$。
 
@@ -279,7 +279,7 @@ $$\|x_{k+1} - x^*\| \leq q \|x_k - x^*\|$$
 
 如果：
 
-$$\lim_{k \to \infty} \frac{\|x_{k+1} - x^*\|}{\|x_k - x^*\|} = 0$$
+$$\lim_{k \to \infty} \frac{\lVert x_{k+1} - x^* \rVert}{\lVert x_k - x^* \rVert} = 0$$
 
 则称算法超线性收敛。
 
@@ -287,7 +287,7 @@ $$\lim_{k \to \infty} \frac{\|x_{k+1} - x^*\|}{\|x_k - x^*\|} = 0$$
 
 如果存在常数 $M > 0$ 和 $k_0 \geq 0$，使得对于所有 $k \geq k_0$，有：
 
-$$\|x_{k+1} - x^*\| \leq M \|x_k - x^*\|^2$$
+$$\lVert x_{k+1} - x^* \rVert \leq M \lVert x_k - x^* \rVert^2$$
 
 则称算法二次收敛。
 
@@ -295,7 +295,7 @@ $$\|x_{k+1} - x^*\| \leq M \|x_k - x^*\|^2$$
 
 #### 梯度下降法的收敛性
 
-对于梯度 Lipschitz 连续的函数（即存在常数 $L > 0$，使得 $\|\nabla f(x) - \nabla f(y)\| \leq L \|x - y\|$ 对所有 $x, y$ 成立），使用固定步长 $\alpha \leq 1/L$ 的梯度下降法是线性收敛的。
+对于梯度 Lipschitz 连续的函数（即存在常数 $L > 0$，使得 $\lVert \nabla f(x) - \nabla f(y) \rVert \leq L \lVert x - y \rVert$ 对所有 $x, y$ 成立），使用固定步长 $\alpha \leq 1/L$ 的梯度下降法是线性收敛的。
 
 #### 随机梯度下降的收敛性
 
@@ -341,6 +341,6 @@ $$\|x_{k+1} - x^*\| \leq M \|x_k - x^*\|^2$$
 ## 习题
 
 ### 习题4.1
-使用梯度下降法求解函数 \(f(x) = x_1^2 + 2x_2^2\) 的最小值，初始点为 \(x_0 = (2, 1)^T\)，步长为 \(\alpha = 0.1\)，迭代5次。
+使用梯度下降法求解函数 $f(x) = x_1^2 + 2x_2^2$ 的最小值，初始点为 $x_0 = (2, 1)^T$，步长为 $\alpha = 0.1$，迭代5次。
 
 **注**：习题解答见第8章附录。

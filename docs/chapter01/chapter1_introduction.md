@@ -60,9 +60,9 @@ $$h_j(x) = 0, \quad j=1,2,\ldots,p$$
 - **点积**：对于向量 $x, y \in \mathbb{R}^n$，点积定义为 $x^T y = \sum_{i=1}^n x_i y_i$。
 
 - **范数**：
-  - 欧几里得范数（2-范数）：$\|x\|_2 = \sqrt{x^T x} = \sqrt{\sum_{i=1}^n x_i^2}$
-  - 1-范数：$\|x\|_1 = \sum_{i=1}^n |x_i|$
-  - 无穷范数：$\|x\|_\infty = \max_{1 \leq i \leq n} |x_i|$
+  - 欧几里得范数（2-范数）：$\lVert x \rVert_2 = \sqrt{x^T x} = \sqrt{\sum_{i=1}^n x_i^2}$
+  - 1-范数：$\lVert x \rVert_1 = \sum_{i=1}^n |x_i|$
+  - 无穷范数：$\lVert x \rVert_\infty = \max_{1 \leq i \leq n} |x_i|$
 
 #### 矩阵运算
 
@@ -181,9 +181,9 @@ $$p(x) = \frac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp\left(-\frac{1}{2}(x - \mu)^T
 ## 习题
 
 ### 习题1.1
-证明向量的2-范数满足三角不等式，即 \(\|x + y\|_2 \leq \|x\|_2 + \|y\|_2\)。
+证明向量的2-范数满足三角不等式，即 $(\lVert x + y \rVert_2 \leq \lVert x \rVert_2 + \lVert y \rVert_2)$。
 
 ### 习题1.2
-计算函数 \(f(x) = x^3 - 3x\) 的梯度和海森矩阵。
+计算函数 $f(x) = x^3 - 3x$ 的梯度和海森矩阵。
 
 **注**：习题解答见第8章附录。

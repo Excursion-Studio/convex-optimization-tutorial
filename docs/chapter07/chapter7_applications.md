@@ -30,7 +30,7 @@ $$\min_{w, b} \frac{1}{n} \sum_{i=1}^n (w^T x_i + b - y_i)^2$$
 
 **优化问题**：岭回归的优化问题可以表示为：
 
-$$\min_{w, b} \frac{1}{n} \sum_{i=1}^n (w^T x_i + b - y_i)^2 + \lambda \|w\|_2^2$$
+$$\min_{w, b} \frac{1}{n} \sum_{i=1}^n (w^T x_i + b - y_i)^2 + \lambda \lVert w \rVert_2^2$$
 
 其中 $\lambda > 0$ 是正则化参数，控制正则化强度。
 
@@ -66,7 +66,7 @@ $$\min_{w, b} -\frac{1}{n} \sum_{i=1}^n [y_i \log \sigma(w^T x_i + b) + (1 - y_i
 
 **优化问题**：线性支持向量机的优化问题可以表示为：
 
-$$\min_{w, b} \frac{1}{2} \|w\|_2^2$$
+$$\min_{w, b} \frac{1}{2} \lVert w \rVert_2^2$$
 
 $$\text{s.t. } y_i (w^T x_i + b) \geq 1, \quad i=1,2,\ldots,n$$
 
@@ -76,7 +76,7 @@ $$\text{s.t. } y_i (w^T x_i + b) \geq 1, \quad i=1,2,\ldots,n$$
 
 当训练数据线性不可分时，我们引入松弛变量来允许一些样本违反间隔约束：
 
-$$\min_{w, b, \xi} \frac{1}{2} \|w\|_2^2 + C \sum_{i=1}^n \xi_i$$
+$$\min_{w, b, \xi} \frac{1}{2} \lVert w \rVert_2^2 + C \sum_{i=1}^n \xi_i$$
 
 $$\text{s.t. } y_i (w^T x_i + b) \geq 1 - \xi_i, \quad i=1,2,\ldots,n$$
 
@@ -110,7 +110,7 @@ $$L(\theta) = \frac{1}{n} \sum_{i=1}^n l(f(x_i; \theta), y_i)$$
 
 **优化问题**：稀疏信号恢复可以建模为L1正则化优化问题（也称为LASSO）：
 
-$$\min_{x} \frac{1}{2} \|y - Ax\|_2^2 + \lambda \|x\|_1$$
+$$\min_{x} \frac{1}{2} \lVert y - Ax \rVert_2^2 + \lambda \lVert x \rVert_1$$
 
 其中 $\lambda > 0$ 是正则化参数，控制信号的稀疏程度。这是一个凸优化问题，因为L1范数是凸函数。
 
@@ -138,7 +138,7 @@ $$\min_{h} \int_{0}^{\pi} |H(\omega) - H_d(\omega)|^2 d\omega$$
 
 **优化问题**：压缩感知的优化问题可以建模为：
 
-$$\min_{x} \|x\|_1$$
+$$\min_{x} \lVert x \rVert_1$$
 
 $$\text{s.t. } Ax = y$$
 

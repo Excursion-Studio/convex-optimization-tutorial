@@ -71,7 +71,7 @@ $$H = \{x \in \mathbb{R}^n \mid a^T x = b\}$$
 
 欧几里得球（简称球）是指所有与给定点距离不超过某个半径的点的集合：
 
-$$B(x_c, r) = \{x \in \mathbb{R}^n \mid \|x - x_c\|_2 \leq r\}$$
+$$B(x_c, r) = \{x \in \mathbb{R}^n \mid \lVert x - x_c \rVert_2 \leq r\}$$
 
 其中 $x_c \in \mathbb{R}^n$ 是球心，$r > 0$ 是半径。球是凸集。
 
@@ -288,9 +288,9 @@ $$f(x) + f^*(y) \geq x^T y$$
 ## 习题
 
 ### 习题2.1
-证明集合 \(C = \{x \in \mathbb{R}^n \mid \|x\|_2 \leq 1\}\) 是凸集。
+证明集合 $C = \{x \in \mathbb{R}^n \mid \lVert x \rVert_2 \leq 1\}$ 是凸集。
 
 ### 习题2.2
-证明函数 \(f(x) = e^{ax}\) 是凸函数，其中 \(a \in \mathbb{R}\)。
+证明函数 $f(x) = e^{ax}$ 是凸函数，其中 $a \in \mathbb{R}$。
 
 **注**：习题解答见第8章附录。

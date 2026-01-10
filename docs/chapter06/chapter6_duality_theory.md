@@ -281,12 +281,12 @@ $$\sup_{\mu \geq 0, \lambda} \inf_{x} L(x, \mu, \lambda) \leq \inf_{x} \sup_{\mu
 ### 习题6.1
 写出下列线性规划问题的对偶问题：
 
-\[\min_{x} 3x_1 + 4x_2\]
+$$\min_{x} 3x_1 + 4x_2$$
 
-\[\text{s.t. } x_1 + x_2 \geq 1\]
+$$\text{s.t. } x_1 + x_2 \geq 1$$
 
-\[2x_1 + x_2 \geq 2\]
+$$2x_1 + x_2 \geq 2$$
 
-\[x_1, x_2 \geq 0\]
+$$x_1, x_2 \geq 0$$
 
 **注**：习题解答见第8章附录。

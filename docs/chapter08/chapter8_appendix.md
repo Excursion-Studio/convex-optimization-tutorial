@@ -12,13 +12,13 @@
 
 常见的矩阵范数包括：
 
-1. **1-范数（列和范数）**：$\|A\|_1 = \max_{1 \leq j \leq n} \sum_{i=1}^m |A_{ij}|$，即矩阵各列绝对值之和的最大值。
+1. **1-范数（列和范数）**：$\lVert A \rVert_1 = \max_{1 \leq j \leq n} \sum_{i=1}^m |A_{ij}|$，即矩阵各列绝对值之和的最大值。
 
-2. **∞-范数（行和范数）**：$\|A\|_\infty = \max_{1 \leq i \leq m} \sum_{j=1}^n |A_{ij}|$，即矩阵各行绝对值之和的最大值。
+2. **∞-范数（行和范数）**：$\lVert A \rVert_\infty = \max_{1 \leq i \leq m} \sum_{j=1}^n |A_{ij}|$，即矩阵各行绝对值之和的最大值。
 
-3. **2-范数（谱范数）**：$\|A\|_2 = \sqrt{\lambda_{max}(A^T A)}$，其中 $\lambda_{max}(A^T A)$ 是 $A^T A$ 的最大特征值。
+3. **2-范数（谱范数）**：$\lVert A \rVert_2 = \sqrt{\lambda_{max}(A^T A)}$，其中 $\lambda_{max}(A^T A)$ 是 $A^T A$ 的最大特征值。
 
-4. **Frobenius范数**：$\|A\|_F = \sqrt{\sum_{i=1}^m \sum_{j=1}^n |A_{ij}|^2} = \sqrt{\text{tr}(A^T A)}$。
+4. **Frobenius范数**：$\lVert A \rVert_F = \sqrt{\sum_{i=1}^m \sum_{j=1}^n |A_{ij}|^2} = \sqrt{\text{tr}(A^T A)}$。
 
 #### 矩阵的条件数
 
@@ -26,7 +26,7 @@
 
 对于非奇异矩阵 $A$，其条件数为：
 
-$$\kappa(A) = \|A\| \|A^{-1}\|$$
+$$\kappa(A) = \lVert A \rVert \lVert A^{-1} \rVert$$
 
 条件数越大，矩阵越病态，求解线性方程组 $Ax = b$ 时的误差放大效应越明显。
 
@@ -337,17 +337,17 @@ print("总利润:", value(prob.objective))
 
 #### 第1章 介绍与预备知识
 
-**习题1.1**：证明向量的2-范数满足三角不等式，即 $\|x + y\|_2 \leq \|x\|_2 + \|y\|_2$。
+**习题1.1**：证明向量的2-范数满足三角不等式，即 $\lVert x + y \rVert_2 \leq \lVert x \rVert_2 + \lVert y \rVert_2$。
 
 **提示**：使用柯西-施瓦茨不等式 $(x^T y)^2 \leq (x^T x)(y^T y)$。
 
 **解答**：
 
-$$\|x + y\|_2^2 = (x + y)^T (x + y) = x^T x + 2x^T y + y^T y = \|x\|_2^2 + 2x^T y + \|y\|_2^2$$
+$$\lVert x + y \rVert_2^2 = (x + y)^T (x + y) = x^T x + 2x^T y + y^T y = \lVert x \rVert_2^2 + 2x^T y + \lVert y \rVert_2^2$$
 
-由柯西-施瓦茨不等式，$x^T y \leq \|x\|_2 \|y\|_2$，因此：
+由柯西-施瓦茨不等式，$x^T y \leq \lVert x \rVert_2 \lVert y \rVert_2$，因此：
 
-$$\|x + y\|_2^2 \leq \|x\|_2^2 + 2\|x\|_2 \|y\|_2 + \|y\|_2^2 = (\|x\|_2 + \|y\|_2)^2$$
+$$\lVert x + y \rVert_2^2 \leq \lVert x \rVert_2^2 + 2\lVert x \rVert_2 \lVert y \rVert_2 + \lVert y \rVert_2^2 = (\lVert x \rVert_2 + \lVert y \rVert_2)^2$$
 
 两边开平方得证。
 
@@ -361,7 +361,7 @@ $$\|x + y\|_2^2 \leq \|x\|_2^2 + 2\|x\|_2 \|y\|_2 + \|y\|_2^2 = (\|x\|_2 + \|y\|
 
 #### 第2章 凸集与凸函数基础
 
-**习题2.1**：证明集合 $C = \{x \in \mathbb{R}^n \mid \|x\|_2 \leq 1\}$ 是凸集。
+**习题2.1**：证明集合 $C = \{x \in \mathbb{R}^n \mid \lVert x \rVert_2 \leq 1\}$ 是凸集。
 
 **提示**：使用三角不等式。
 
@@ -369,7 +369,7 @@ $$\|x + y\|_2^2 \leq \|x\|_2^2 + 2\|x\|_2 \|y\|_2 + \|y\|_2^2 = (\|x\|_2 + \|y\|
 
 对于任意 $x, y \in C$ 和 $\theta \in [0, 1]$，有：
 
-$$\|\theta x + (1 - \theta) y\|_2 \leq \theta \|x\|_2 + (1 - \theta) \|y\|_2 \leq \theta \cdot 1 + (1 - \theta) \cdot 1 = 1$$
+$$\lVert \theta x + (1 - \theta) y \rVert_2 \leq \theta \lVert x \rVert_2 + (1 - \theta) \lVert y \rVert_2 \leq \theta \cdot 1 + (1 - \theta) \cdot 1 = 1$$
 
 因此 $\theta x + (1 - \theta) y \in C$，所以 $C$ 是凸集。
 
