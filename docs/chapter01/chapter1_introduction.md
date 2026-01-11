@@ -66,13 +66,13 @@ $$h_j(x) = 0, \quad j=1,2,\ldots,p$$
 
 #### 矩阵运算
 
-- **矩阵加法**：对于矩阵 $A, B \in \mathbb{R}^{m \times n}$，有 $(A + B)_{ij} = A_{ij} + B_{ij}$。
+- **矩阵加法**：对于矩阵 $A, B \in \mathbb{R}^{m \times n}$，设 $a_{ij}$ 和 $b_{ij}$ 分别是 $A$ 和 $B$ 的第 $i$ 行第 $j$ 列元素，则矩阵和 $C = A + B$ 的元素为 $c_{ij} = a_{ij} + b_{ij}$。
 
-- **标量乘法**：对于矩阵 $A \in \mathbb{R}^{m \times n}$ 和标量 $\alpha \in \mathbb{R}$，有 $(\alpha A)_{ij} = \alpha A_{ij}$。
+- **标量乘法**：对于矩阵 $A \in \mathbb{R}^{m \times n}$ 和标量 $\alpha \in \mathbb{R}$，设 $a_{ij}$ 是 $A$ 的第 $i$ 行第 $j$ 列元素，则标量乘法 $B = \alpha A$ 的元素为 $b_{ij} = \alpha a_{ij}$。
 
-- **矩阵乘法**：对于矩阵 $A \in \mathbb{R}^{m \times n}$ 和 $B \in \mathbb{R}^{n \times p}$，有 $(AB)_{ik} = \sum_{j=1}^n A_{ij} B_{jk}$。
+- **矩阵乘法**：对于矩阵 $A \in \mathbb{R}^{m \times n}$ 和 $B \in \mathbb{R}^{n \times p}$，设 $a_{ij}$ 和 $b_{jk}$ 分别是 $A$ 和 $B$ 的元素，则矩阵乘积 $C = AB$ 的元素为 $c_{ik} = \sum_{j=1}^n a_{ij} b_{jk}$。
 
-- **转置**：对于矩阵 $A \in \mathbb{R}^{m \times n}$，其转置 $A^T \in \mathbb{R}^{n \times m}$ 满足 $(A^T)_{ij} = A_{ji}$。
+- **转置**：对于矩阵 $A \in \mathbb{R}^{m \times n}$，设 $a_{ji}$ 是 $A$ 的第 $j$ 行第 $i$ 列元素，则其转置 $A^T \in \mathbb{R}^{n \times m}$ 的第 $i$ 行第 $j$ 列元素为 $a_{ji}$。
 
 - **迹**：对于方阵 $A \in \mathbb{R}^{n \times n}$，其迹定义为 $\text{tr}(A) = \sum_{i=1}^n A_{ii}$。
 
@@ -181,7 +181,7 @@ $$p(x) = \frac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp\left(-\frac{1}{2}(x - \mu)^T
 ## 习题
 
 ### 习题1.1
-证明向量的2-范数满足三角不等式，即 $(\lVert x + y \rVert_2 \leq \lVert x \rVert_2 + \lVert y \rVert_2)$。
+证明向量的2-范数满足三角不等式，即 $\lVert x + y \rVert_2 \leq \lVert x \rVert_2 + \lVert y \rVert_2$。
 
 ### 习题1.2
 计算函数 $f(x) = x^3 - 3x$ 的梯度和海森矩阵。
