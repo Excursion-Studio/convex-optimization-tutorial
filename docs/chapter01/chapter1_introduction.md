@@ -92,12 +92,17 @@ $$\nabla f(x) = \left( \frac{\partial f(x)}{\partial x_1}, \frac{\partial f(x)}{
 
 对于二阶可导的函数 $f: \mathbb{R}^n \to \mathbb{R}$，其海森矩阵是一个 $n \times n$ 的对称矩阵，定义为：
 
-$$\nabla^2 f(x) = \begin{bmatrix}
-\frac{\partial^2 f(x)}{\partial x_1^2} & \frac{\partial^2 f(x)}{\partial x_1 \partial x_2} & \cdots & \frac{\partial^2 f(x)}{\partial x_1 \partial x_n} \\
-\frac{\partial^2 f(x)}{\partial x_2 \partial x_1} & \frac{\partial^2 f(x)}{\partial x_2^2} & \cdots & \frac{\partial^2 f(x)}{\partial x_2 \partial x_n} \\
-\vdots & \vdots & \ddots & \vdots \\
+$$
+\nabla^2 f(x) = 
+\left[
+\begin{array}{cccc}
+\frac{\partial^2 f(x)}{\partial x_1^2} & \frac{\partial^2 f(x)}{\partial x_1 \partial x_2} & \cdots & \frac{\partial^2 f(x)}{\partial x_1 \partial x_n} \\\\
+\frac{\partial^2 f(x)}{\partial x_2 \partial x_1} & \frac{\partial^2 f(x)}{\partial x_2^2} & \cdots & \frac{\partial^2 f(x)}{\partial x_2 \partial x_n} \\\\
+\vdots & \vdots & \ddots & \vdots \\\\
 \frac{\partial^2 f(x)}{\partial x_n \partial x_1} & \frac{\partial^2 f(x)}{\partial x_n \partial x_2} & \cdots & \frac{\partial^2 f(x)}{\partial x_n^2}
-\end{bmatrix}$$
+\end{array}
+\right]
+$$
 
 #### 泰勒展开
 
