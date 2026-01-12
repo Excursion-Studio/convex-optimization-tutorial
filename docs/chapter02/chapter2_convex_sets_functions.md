@@ -57,7 +57,7 @@ $$P = \{x \in \mathbb{R}^n \mid Ax \leq b, Cx = d\}$$
 
 $$H = \{x \in \mathbb{R}^n \mid a^T x \leq b\}$$
 
-其中 $a \in \mathbb{R}^n \setminus \{0\}$，$b \in \mathbb{R}$。半空间是凸集。
+其中 $a \in \mathbb{R}^n$ 且 $a \neq 0$，$b \in \mathbb{R}$。半空间是凸集。
 
 #### 超平面
 
@@ -65,7 +65,7 @@ $$H = \{x \in \mathbb{R}^n \mid a^T x \leq b\}$$
 
 $$H = \{x \in \mathbb{R}^n \mid a^T x = b\}$$
 
-其中 $a \in \mathbb{R}^n \setminus \{0\}$，$b \in \mathbb{R}$。超平面是仿射集，因此也是凸集。
+其中 $a \in \mathbb{R}^n$ 且 $a \neq 0$，$b \in \mathbb{R}$。超平面是仿射集，因此也是凸集。
 
 #### 球
 

@@ -158,7 +158,7 @@ $$A = U \Sigma V^T$$
 
 - **期望**：对于随机变量 $X$，其期望（均值）定义为 $\mathbb{E}[X] = \int x p(x) dx$（连续型）或 $\sum x p(x)$（离散型）。
 
-- **方差**：对于随机变量 $X$，其方差定义为 $\text{Var}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2]$。
+- **方差**：对于随机变量 $X$，其方差定义为 $\text{D}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2]$。
 
 - **协方差**：对于随机变量 $X$ 和 $Y$，其协方差定义为 $\text{Cov}(X, Y) = \mathbb{E}[(X - \mathbb{E}[X])(Y - \mathbb{E}[Y])]$。
 

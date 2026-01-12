@@ -50,7 +50,7 @@ $$A = Q \Lambda Q^T$$
 
 2. **切比雪夫不等式**：对于随机变量 $X$ 和 $a > 0$，有：
 
-   $$P(|X - \mathbb{E}[X]| \geq a) \leq \frac{\text{Var}(X)}{a^2}$$
+   $$P(|X - \mathbb{E}[X]| \geq a) \leq \frac{\text{D}(X)}{a^2}$$
 
 3. **霍夫丁不等式**：对于独立随机变量 $X_1, X_2, \ldots, X_n$，其中 $X_i \in [a_i, b_i]$，令 $S_n = \sum_{i=1}^n X_i$，则对于任意 $t > 0$，有：
 
