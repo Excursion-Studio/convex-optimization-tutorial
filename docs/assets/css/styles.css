@@ -30,19 +30,7 @@
         font-size: 14px !important;
       }
       .mathjax-container {
-        overflow-x: auto;
-        white-space: nowrap;
-        max-width: 100%;
-        padding: 0 5px;
-      }
-      .MathJax_Display {
-        overflow-x: auto;
-        overflow-y: hidden;
-        max-width: 100%;
-      }
-      .MathJax_SVG {
-        max-width: 100%;
-        height: auto;
+        padding: 0 5px !important;
       }
     }
     
@@ -51,7 +39,7 @@
         font-size: 12px !important;
       }
       .mathjax-container {
-        margin: 0.8em 0;
+        margin: 0.8em 0 !important;
       }
     }
     
@@ -83,6 +71,14 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+
+    /* MathJax formula styles | MathJax公式样式 */
+    .markdown-section mathjax-formula {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      margin: 1em 0;
     }
     
     /* Ensure all Markdown content uses the same font | 确保所有Markdown内容使用相同字体 */
@@ -335,6 +331,11 @@
       .markdown-section h3 {
         font-size: 16px !important;
       }
+
+      .markdown-section mathjax-formula {
+        white-space: nowrap;
+        overflow-x: auto;
+      }
       
       .watermark {
         width: 240px !important;
@@ -424,4 +425,41 @@
     
     .markdown-section h6 {
       color: transparent !important;
+    }
+    
+    /* Global MathJax color settings | 全局MathJax颜色设置 */
+    .MathJax_SVG {
+      color: #000000 !important;
+    }
+    
+    .MathJax {
+      color: #000000 !important;
+    }
+    
+    .mathjax-container {
+      color: #000000 !important;
+    }
+    
+    .MathJax_Display {
+      color: #000000 !important;
+    }
+    
+    .MathJax_SVG_Display {
+      color: #000000 !important;
+    }
+    
+    /* Ensure all MathJax elements use black color | 确保所有MathJax元素使用黑色 */
+    [class^="MathJax"] {
+      color: #000000 !important;
+    }
+    
+    /* Ensure formula text color is black | 确保公式文本颜色为黑色 */
+    .markdown-section .mathjax-container {
+      color: #000000 !important;
+    }
+    
+    /* Ensure MathJax SVG text elements use black | 确保MathJax SVG文本元素使用黑色 */
+    .MathJax_SVG text {
+      fill: #000000 !important;
+      stroke: #000000 !important;
     }
