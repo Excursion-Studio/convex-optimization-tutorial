@@ -358,4 +358,4 @@ $$\lVert x_{k+1} - x^* \rVert \leq M \lVert x_k - x^* \rVert^2$$
 
 **习题4.7**：使用梯度下降法求解函数 $f(x) = (x_1 - 1)^2 + (x_2 - 2)^2$ 的最小值，初始点为 $x_0 = (0, 0)^T$，步长为 $\alpha = 0.1$，迭代10次，并计算最终点的函数值。
 
-习题解答[点击这里](docs/quiz/exercise_solutions.md)
+习题解答[点击这里](quiz/exercise_solutions.md)

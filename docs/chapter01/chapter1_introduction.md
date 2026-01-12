@@ -205,4 +205,4 @@ $$p(x) = \frac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp\left(-\frac{1}{2}(x - \mu)^T
 
 **习题1.7**：计算函数 $f(x) = \ln(1 + e^{x^T x})$ 的梯度。
 
-习题解答[点击这里](docs/quiz/exercise_solutions.md)
+习题解答[点击这里](quiz/exercise_solutions.md)

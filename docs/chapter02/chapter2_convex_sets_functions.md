@@ -309,4 +309,4 @@ $$f(x) + f^*(y) \geq x^T y$$
 
 **习题2.8**：证明集合 $C = \{x \in \mathbb{R}^2 \mid x_1^2 + 2x_2^2 \leq 1\}$ 是凸集。
 
-习题解答[点击这里](docs/quiz/exercise_solutions.md)
+习题解答[点击这里](quiz/exercise_solutions.md)

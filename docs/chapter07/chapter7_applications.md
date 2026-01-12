@@ -325,4 +325,4 @@ $$c^T \theta < 0$$
 
 **习题7.6**：使用Python实现线性回归模型，拟合习题7.1中的数据，并绘制拟合直线。
 
-习题解答[点击这里](docs/quiz/exercise_solutions.md)
+习题解答[点击这里](quiz/exercise_solutions.md)

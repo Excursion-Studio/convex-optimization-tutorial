@@ -7,7 +7,7 @@
   <meta name="description" id="page-description" content="">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23667eea'%3E%3Cpath d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z'/%3E%3C/svg%3E" type="image/svg+xml">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@latest/lib/themes/vue.css">
   <link rel="stylesheet" href="docs/assets/css/styles.css">
   <!-- MathJax for math formulas | 用于数学公式渲染 -->
   <script>
@@ -34,6 +34,7 @@
     };
   </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
 </head>
 <body>
   <div id="app"></div>
@@ -109,19 +110,6 @@
         // Disable Docsify's default math processing to avoid conflicts
         plugins: []
       },
-      pagination:{
-        previousText:'上一篇',
-        nextText:'下一篇',
-      },
-      search:{
-        placeholder:'搜索',
-        noData:'找不到结果',
-        paths:'.',
-        depth:6,
-        uniqueKey:function() {
-          return window.$docsify.name.replace(/\s+/g, '-').toLowerCase();
-        }
-      },
       plugins: [
         function(hook, vm) {
           hook.beforeEach(function(content) {
@@ -150,15 +138,29 @@
           });
         }
       ],
+      pagination:{
+        previousText:'上一篇',
+        nextText:'下一篇',
+      },
+      search:{
+        placeholder:'搜索',
+        noData:'找不到结果',
+        paths:'.',
+        depth:6,
+        uniqueKey:function() {
+          return window.$docsify.name.replace(/\s+/g, '-').toLowerCase();
+        }
+      },
+
     }
   </script>
 
   <!-- Put them above docsify.min.js | 将它们放在docsify.min.js上面 -->
-  <script src="https://unpkg.com/docsify@4.13.1/lib/docsify.min.js"></script>
+  <script src="https://unpkg.com/docsify@latest/lib/docsify.min.js"></script>
   <script src="https://unpkg.com/docsify-pagination@2.3.4/dist/docsify-pagination.min.js"></script>
   <script src="https://unpkg.com/docsify-copy-code@2.1.1"></script>
-  <script src="https://unpkg.com/docsify@4.13.1/lib/plugins/search.min.js"></script>
-  <script src="https://unpkg.com/docsify@4.13.1/lib/plugins/zoom-image.min.js"></script>
+  <script src="https://unpkg.com/docsify@latest/lib/plugins/search.min.js"></script>
+  <script src="https://unpkg.com/docsify@latest/lib/plugins/zoom-image.min.js"></script>
   <script src="https://unpkg.com/prismjs@1.29.0/components/prism-bash.min.js"></script>
   <script src="https://unpkg.com/prismjs@1.29.0/components/prism-python.min.js"></script>
   <!-- MathJax for math formulas | 数学公式渲染 -->

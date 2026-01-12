@@ -318,4 +318,4 @@ $$2x_1 + x_2 \geq 3$$
 
 $$x_1, x_2 \geq 0$$
 
-习题解答[点击这里](docs/quiz/exercise_solutions.md)
+习题解答[点击这里](quiz/exercise_solutions.md)
