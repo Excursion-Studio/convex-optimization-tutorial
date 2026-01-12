@@ -8,3 +8,6 @@
 - [第6章 对偶理论](chapter06/chapter6_duality_theory.md)
 - [第7章 应用案例](chapter07/chapter7_applications.md)
 - [第8章 附录与参考资料](chapter08/chapter8_appendix.md)
+- [编程练习](code/programming.md)
+- [习题解答](quiz/exercise_solutions.md)
+- [综合题](quiz/comprehensive_exercises.md)

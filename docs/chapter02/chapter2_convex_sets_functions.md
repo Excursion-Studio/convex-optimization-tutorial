@@ -287,10 +287,26 @@ $$f(x) + f^*(y) \geq x^T y$$
 
 ## 习题
 
-### 习题2.1
-证明集合 $C = \{x \in \mathbb{R}^n \mid \lVert x \rVert_2 \leq 1\}$ 是凸集。
+### 基础题
 
-### 习题2.2
-证明函数 $f(x) = e^{ax}$ 是凸函数，其中 $a \in \mathbb{R}$。
+**习题2.1**：证明集合 $C = \{x \in \mathbb{R}^n \mid \lVert x \rVert_2 \leq 1\}$ 是凸集。
 
-**注**：习题解答见第8章附录。
+**提示**：使用三角不等式。
+
+**习题2.2**：证明函数 $f(x) = e^{ax}$ 是凸函数，其中 $a \in \mathbb{R}$。
+
+**习题2.3**：证明两个凸集的交集仍然是凸集。
+
+**习题2.4**：证明线性函数 $f(x) = a^T x + b$ 既是凸函数又是凹函数。
+
+### 中等题
+
+**习题2.5**：证明集合 $C = \{x \in \mathbb{R}^n \mid Ax = b\}$ 是凸集，其中 $A$ 是 $m \times n$ 矩阵，$b \in \mathbb{R}^m$。
+
+**习题2.6**：证明函数 $f(x) = \lVert x \rVert_2^2$ 是凸函数。
+
+**习题2.7**：设 $f: \mathbb{R}^n \rightarrow \mathbb{R}$ 和 $g: \mathbb{R}^n \rightarrow \mathbb{R}$ 都是凸函数，证明 $h(x) = \max\{f(x), g(x)\}$ 也是凸函数。
+
+**习题2.8**：证明集合 $C = \{x \in \mathbb{R}^2 \mid x_1^2 + 2x_2^2 \leq 1\}$ 是凸集。
+
+习题解答[点击这里](docs/quiz/exercise_solutions.md)

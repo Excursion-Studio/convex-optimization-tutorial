@@ -185,10 +185,24 @@ $$p(x) = \frac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp\left(-\frac{1}{2}(x - \mu)^T
 
 ## 习题
 
-### 习题1.1
-证明向量的2-范数满足三角不等式，即 $\lVert x + y \rVert_2 \leq \lVert x \rVert_2 + \lVert y \rVert_2$。
+### 基础题
 
-### 习题1.2
-计算函数 $f(x) = x^3 - 3x$ 的梯度和海森矩阵。
+**习题1.1**：证明向量的2-范数满足三角不等式，即 $\lVert x + y \rVert_2 \leq \lVert x \rVert_2 + \lVert y \rVert_2$。
 
-**注**：习题解答见第8章附录。
+**提示**：使用柯西-施瓦茨不等式 $(x^T y)^2 \leq (x^T x)(y^T y)$。
+
+**习题1.2**：计算函数 $f(x) = x^3 - 3x$ 的梯度和海森矩阵。
+
+**习题1.3**：证明向量的1-范数和∞-范数都满足三角不等式。
+
+**习题1.4**：计算函数 $f(x) = \frac{1}{2}x^T Ax + b^T x + c$ 的梯度和海森矩阵，其中 $A$ 是对称矩阵。
+
+### 中等题
+
+**习题1.5**：设 $x, y \in \mathbb{R}^n$，证明 $\lVert x + y \rVert_2^2 + \lVert x - y \rVert_2^2 = 2(\lVert x \rVert_2^2 + \lVert y \rVert_2^2)$。
+
+**习题1.6**：设 $f: \mathbb{R}^n \rightarrow \mathbb{R}$ 是二次可微函数，证明 $f$ 是凸函数当且仅当它的海森矩阵在定义域上半正定。
+
+**习题1.7**：计算函数 $f(x) = \ln(1 + e^{x^T x})$ 的梯度。
+
+习题解答[点击这里](docs/quiz/exercise_solutions.md)

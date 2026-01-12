@@ -2,32 +2,43 @@
 
 ## 项目介绍
 
-本教程为具备基础数学知识（高数、线代、概统、复变等）的学习者提供凸优化的入门介绍。教程内容涵盖凸优化的基本概念、理论、算法以及在各个领域的应用案例。
+本教程为具备基础数学知识（高数、线代、概统等）的学习者提供凸优化的入门介绍。教程内容涵盖凸优化的基本概念、理论、算法以及在各个领域的应用案例。
 
 ## 目录结构
 
 ```
-├── README.md                                   # 项目说明文档
-├── chapter01/                                  # 第1章 目录
-│   └── chapter1_introduction.md                # 第1章 介绍与预备知识
-├── chapter02/                                  # 第2章 目录
-│   └── chapter2_convex_sets_functions.md       # 第2章 凸集与凸函数基础
-├── chapter03/                                  # 第3章 目录
-│   └── chapter3_convex_optimization_problems.md# 第3章 凸优化问题
-├── chapter04/                                  # 第4章 目录
-│   └── chapter4_unconstrained_optimization.md  # 第4章 无约束优化算法
-├── chapter05/                                  # 第5章 目录
-│   └── chapter5_constrained_optimization.md    # 第5章 约束优化算法
-├── chapter06/                                  # 第6章 目录
-│   └── chapter6_duality_theory.md              # 第6章 对偶理论
-├── chapter07/                                  # 第7章 目录
-│   └── chapter7_applications.md                # 第7章 应用案例
-├── chapter08/                                  # 第8章 目录
-│   └── chapter8_appendix.md                    # 第8章 附录与参考资料
-├── decorations/                                # 装饰资源目录
-│   └── excursion_logo.png                      # 标志图片
-├── _sidebar.md                                 # 侧边栏配置文件
-└── index.html                                  # 主HTML文件
+├── .nojekyll                                   # 防止Jekyll处理的标记文件
+├── index.html                                  # 项目根目录HTML文件
+└── docs/                                       # 文档主目录
+    ├── README.md                               # 项目说明文档
+    ├── chapter01/                              # 第1章 目录
+    │   └── chapter1_introduction.md            # 第1章 介绍与预备知识
+    ├── chapter02/                              # 第2章 目录
+    │   └── chapter2_convex_sets_functions.md   # 第2章 凸集与凸函数基础
+    ├── chapter03/                              # 第3章 目录
+    │   └── chapter3_convex_optimization_problems.md# 第3章 凸优化问题
+    ├── chapter04/                              # 第4章 目录
+    │   └── chapter4_unconstrained_optimization.md# 第4章 无约束优化算法
+    ├── chapter05/                              # 第5章 目录
+    │   └── chapter5_constrained_optimization.md# 第5章 约束优化算法
+    ├── chapter06/                              # 第6章 目录
+    │   └── chapter6_duality_theory.md          # 第6章 对偶理论
+    ├── chapter07/                              # 第7章 目录
+    │   └── chapter7_applications.md            # 第7章 应用案例
+    ├── chapter08/                              # 第8章 目录
+    │   └── chapter8_appendix.md                # 第8章 附录与参考资料
+    ├── assets/                                 # 资源目录
+    │   ├── css/                                # CSS样式目录
+    │   │   └── styles.css                      # 样式文件
+    │   └── img/                                # 图片目录
+    │       └── excursion_logo.png              # 标志图片
+    ├── code/                                   # 代码示例目录
+    │   └── programming.md                      # 编程练习与示例代码
+    ├── quiz/                                   # 习题目录
+    │   ├── comprehensive_exercises.md          # 综合习题
+    │   └── exercise_solutions.md               # 习题解答
+    ├── _navbar.md                              # 导航栏配置文件
+    └── _sidebar.md                             # 侧边栏配置文件
 ```
 
 ## 内容概览
@@ -76,10 +87,17 @@
 - **习题**：1个习题，线性回归模型拟合
 
 ### 第8章 附录与参考资料
-- **数学补充**：矩阵分析补充，概率论补充，数值分析基础
+- **数学补充**：矩阵分析补充（矩阵范数、条件数、特征值分解），概率论补充（概率不等式），数值分析基础
 - **软件工具**：CVX，CVXPY，MATLAB优化工具箱，Python优化库
 - **参考资料**：推荐教材，经典论文，在线资源与课程
-- **习题解答**：各章节习题提示与解答，编程练习指导
+
+### 编程练习
+- **编程练习**：包含10个编程练习，涵盖梯度下降法、线性回归、线性规划、拉格朗日乘数法、岭回归、牛顿法、共轭梯度法、逻辑回归、随机梯度下降和Adam优化器
+- **每个练习包含**：Python代码、Matlab代码、应用场景介绍
+
+### 习题解答
+- **习题解答**：包含各章节习题的详细解答
+- **综合习题**：包含综合性的优化问题，适合用来提升综合解决问题的能力（持续更新……）
 
 ## 学习建议
 
@@ -87,10 +105,14 @@
 
 2. **理论与实践结合**：
    - 每学完一章后，尝试完成章节末尾的习题
-   - 参考第8章附录中的习题解答进行校对
+   - 参考 [习题解答](quiz/exercise_solutions.md) 中的习题解答进行校对
    - 尝试使用第8章介绍的软件工具实现一些简单的优化问题
+   - 完成 [编程练习](code/programming.md) 中的编程练习，通过实际编码加深对算法的理解，更接近于当前主流的技术
+   
 
-3. **关注应用**：第7章的应用案例展示了凸优化在各个领域的实际应用，有助于理解凸优化的重要性和实用性
+1. **关注应用**：第7章的应用案例展示了凸优化在各个领域的实际应用，有助于理解凸优化的重要性和实用性
+
+2. **利用综合习题**：[综合题](quiz/comprehensive_exercises.md) 可以帮助您综合运用所学知识，解决更复杂的优化问题
 
 ## 参考资料
 
@@ -102,7 +124,7 @@
 
 ## 适用人群
 
-- 具备基础数学知识（高等数学、线性代数、概率论、复变函数等）的本科生或研究生
+- 具备基础数学知识（高等数学、线性代数、概率论与数理统计等）的本科生或研究生
 - 对优化理论和方法感兴趣的工程师、研究人员
 - 需要在机器学习、信号处理、控制系统、金融等领域应用优化技术的专业人士
 
