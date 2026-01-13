@@ -334,7 +334,7 @@ $$x_1, x_2 \geq 0$$
 
 梯度：$\nabla f(x) = (3x_1^2 - 3, 3x_2^2 - 3)^T$
 
-海森矩阵：$\nabla^2 f(x) = \begin{bmatrix} 6x_1 & 0 \\ 0 & 6x_2 \end{bmatrix}$
+海森矩阵：$\nabla^2 f(x) = \begin{bmatrix} 6x_1 & 0 \\\\ 0 & 6x_2 \end{bmatrix}$
 
 **习题4.3**：简述梯度下降法的基本思想和步骤。
 
@@ -356,15 +356,15 @@ $$x_1, x_2 \geq 0$$
 
 梯度：$\nabla f(x) = (2x_1, 4x_2)^T$
 
-海森矩阵：$\nabla^2 f(x) = \begin{bmatrix} 2 & 0 \\ 0 & 4 \end{bmatrix}$
+海森矩阵：$\nabla^2 f(x) = \begin{bmatrix} 2 & 0 \\\\ 0 & 4 \end{bmatrix}$
 
-海森矩阵的逆：$[\nabla^2 f(x)]^{-1} = \begin{bmatrix} 0.5 & 0 \\ 0 & 0.25 \end{bmatrix}$
+海森矩阵的逆：$[\nabla^2 f(x)]^{-1} = \begin{bmatrix} 0.5 & 0 \\\\ 0 & 0.25 \end{bmatrix}$
 
 牛顿方向：$d_k = -[\nabla^2 f(x_k)]^{-1} \nabla f(x_k)$
 
 迭代过程：
 
-- 第1次迭代：$d_0 = -\begin{bmatrix} 0.5 & 0 \\ 0 & 0.25 \end{bmatrix} \begin{bmatrix} 4 \\ 4 \end{bmatrix} = \begin{bmatrix} -2 \\ -1 \end{bmatrix}$，$x_1 = x_0 + d_0 = (2, 1) + (-2, -1) = (0, 0)^T$
+- 第1次迭代：$d_0 = -\begin{bmatrix} 0.5 & 0 \\\\ 0 & 0.25 \end{bmatrix} \begin{bmatrix} 4 \\\\ 4 \end{bmatrix} = \begin{bmatrix} -2 \\\\ -1 \end{bmatrix}$，$x_1 = x_0 + d_0 = (2, 1) + (-2, -1) = (0, 0)^T$
 - 第2次迭代：$\nabla f(x_1) = (0, 0)^T$，满足收敛条件，停止迭代。
 
 因此，牛顿法在一次迭代后就收敛到了最优解 $(0, 0)^T$。
@@ -690,14 +690,73 @@ $$d(\mu, \lambda) = \inf_{x} L(x, \mu, \lambda) \leq L(x, \mu, \lambda) \leq f(x
 
 **解答**：
 
-强对偶性的证明较为复杂，这里给出简要的证明思路：
+强对偶性的详细证明如下：
 
-1. 对于凸优化问题，原问题的最优值 $p^*$ 是凸函数。
-2. 对偶函数 $d(\mu, \lambda)$ 是凹函数，其最优值 $d^*$ 是对偶问题的最大值。
-3. Slater 条件保证了存在严格可行点，使得原问题和对偶问题之间没有对偶间隙。
-4. 通过构造分离超平面和利用凸函数的性质，可以证明 $p^* = d^*$。
+考虑标准形式的凸优化问题：
 
-详细的证明可以参考凸优化的经典教材，如 Boyd 和 Vandenberghe 的《Convex Optimization》。
+$$\begin{align}
+\min_{x} \quad & f_0(x) \\
+\text{s.t.} \quad & f_i(x) \leq 0, \quad i = 1, \ldots, m \\
+& h_i(x) = 0, \quad i = 1, \ldots, p
+\end{align}$$
+
+其中 $f_0, f_1, \ldots, f_m$ 是凸函数，$h_1, \ldots, h_p$ 是仿射函数。
+
+该问题的拉格朗日函数为：
+$$L(x,\lambda,\nu) = f_0(x) + \sum_{i=1}^m \lambda_i f_i(x) + \sum_{i=1}^p \nu_i h_i(x)$$
+
+对偶函数为：
+$$g(\lambda,\nu) = \inf_x L(x,\lambda,\nu)$$
+
+原问题最优值为 $p^* = \inf_x \{f_0(x) | f_i(x) \leq 0, h_i(x) = 0\}$，对偶问题最优值为 $d^* = \sup_{\lambda \succeq 0, \nu} g(\lambda,\nu)$。
+
+**弱对偶性**：对于任意可行点 $x$ 和对偶可行点 $(\lambda,\nu)$，有：
+$$f_0(x) \geq L(x,\lambda,\nu) \geq \inf_x L(x,\lambda,\nu) = g(\lambda,\nu)$$
+
+因此 $p^* \geq d^*$。
+
+**强对偶性证明**（在Slater条件下）：
+
+假设Slater条件成立，即存在一点 $\tilde{x}$ 使得：
+$$f_i(\tilde{x}) < 0, \quad i = 1, \ldots, m, \quad h_i(\tilde{x}) = 0, \quad i = 1, \ldots, p$$
+
+1. **定义集合**：
+   - 令 $\mathcal{A} = \{(u,t) \in \mathbb{R}^m \times \mathbb{R} | \exists x, f_i(x) \leq u_i, i=1,\ldots,m, f_0(x) \leq t\}$
+   - 令 $\mathcal{B} = \{(u,t) | u \preceq 0, t < p^*\}$
+
+2. **集合性质**：
+   - $\mathcal{A}$ 是凸集，因为 $f_i$ 和 $f_0$ 是凸函数
+   - $\mathcal{B}$ 也是凸集
+   - 由定义，$\mathcal{A} \cap \mathcal{B} = \emptyset$
+
+3. **应用分离超平面定理**：
+   存在 $(\tilde{\lambda}, \tilde{\nu}) \neq 0$ 和 $\alpha$ 使得：
+   $$\begin{bmatrix} \tilde{\lambda} \\ \tilde{\nu} \end{bmatrix}^T \begin{bmatrix} u \\ t \end{bmatrix} \geq \alpha, \quad \forall (u,t) \in \mathcal{A}$$
+   $$\begin{bmatrix} \tilde{\lambda} \\ \tilde{\nu} \end{bmatrix}^T \begin{bmatrix} u \\ t \end{bmatrix} \leq \alpha, \quad \forall (u,t) \in \mathcal{B}$$
+
+4. **推导对偶最优解**：
+   可以证明 $\tilde{\lambda} \succeq 0$ 且 $\tilde{\nu} > 0$。
+   
+   对于任意 $x$，令 $u_i = f_i(x)$ 和 $t = f_0(x)$，则 $(u,t) \in \mathcal{A}$，所以：
+   $$\sum_{i=1}^m \tilde{\lambda}_i f_i(x) + \tilde{\nu} f_0(x) \geq \alpha$$
+   
+   因此：
+   $$f_0(x) \geq \frac{\alpha - \sum_{i=1}^m \tilde{\lambda}_i f_i(x)}{\tilde{\nu}}$$
+   
+   取下确界得到：
+   $$p^* \geq \frac{\alpha}{\tilde{\nu}}$$
+
+5. **构造对偶可行点**：
+   令 $\lambda^* = \tilde{\lambda}/\tilde{\nu}$ 和 $\nu^* = 1/\tilde{\nu}$，则：
+   $$g(\lambda^*,\nu^*) = \inf_x L(x,\lambda^*,\nu^*) \geq \frac{\alpha}{\tilde{\nu}}$$
+   
+   又因为 $d^* \leq g(\lambda^*,\nu^*)$，我们有：
+   $$d^* \geq \frac{\alpha}{\tilde{\nu}} \leq p^*$$
+
+6. **结论**：
+   结合弱对偶性 $p^* \geq d^*$，我们得到 $p^* = d^*$，即强对偶性成立。
+
+注： Slater条件的关键作用是保证了分离超平面可以严格分离两个集合，从而确保了对偶问题的最优解存在且与原问题最优值相等。
 
 **习题6.6**：使用对偶理论求解下列线性规划问题：
 
@@ -802,16 +861,16 @@ $$w = (X^T X)^{-1} X^T y$$
 设线性模型为 $y = w_1 x_1 + w_2 x_2 + w_0$，构造设计矩阵 $X$：
 
 $$X = \begin{bmatrix}
-1 & 1 & 2 \\
-1 & 2 & 4 \\
-1 & 3 & 6 \\
-1 & 4 & 8 \\
+1 & 1 & 2 \\\\
+1 & 2 & 4 \\\\
+1 & 3 & 6 \\\\
+1 & 4 & 8 \\\\
 1 & 5 & 10
 \end{bmatrix}$$
 
 目标向量 $y$：
 
-$$y = \begin{bmatrix} 3 \\ 5 \\ 7 \\ 9 \\ 11 \end{bmatrix}$$
+$$y = \begin{bmatrix} 3 \\\\ 5 \\\\ 7 \\\\ 9 \\\\ 11 \end{bmatrix}$$
 
 计算正规方程：
 
