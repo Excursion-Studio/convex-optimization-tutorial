@@ -124,11 +124,50 @@
     /* Links | 链接样式 */
     .markdown-section a {
       color: #667eea !important;
+      display: inline-block;
+      padding: 2px 0;
+      min-height: 44px;
+      min-width: 44px;
+      line-height: 1.5;
+      touch-action: manipulation;
+    }
+    
+    /* Mobile touch targets | 移动端触摸目标 */
+    @media screen and (max-width: 768px) {
+      .markdown-section a {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 8px 4px;
+      }
     }
     
     /* Sidebar | 侧边栏样式 */
     .sidebar {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+    
+    /* Sidebar links | 侧边栏链接样式 */
+    .sidebar ul li a {
+      display: block;
+      padding: 12px 16px;
+      min-height: 44px;
+      line-height: 1.4;
+      touch-action: manipulation;
+      cursor: pointer;
+    }
+    
+    /* Sidebar active links | 侧边栏激活链接样式 */
+    .sidebar ul li.active > a {
+      padding: 12px 16px;
+    }
+    
+    /* Mobile sidebar links | 移动端侧边栏链接样式 */
+    @media screen and (max-width: 768px) {
+      .sidebar ul li a {
+        min-height: 48px;
+        padding: 14px 18px;
+        font-size: 16px;
+      }
     }
     
     /* Bottom right watermark | 右下角水印 */
@@ -138,12 +177,13 @@
       right: 20px;
       width: 250px;
       height: 250px;
-      z-index: 0;
+      z-index: -1;
       background-image: url('../img/excursion_logo.png');
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
       opacity: 0.3;
+      pointer-events: none;
     }
     
     /* Responsive design for mobile devices | 移动端响应式设计 */
@@ -156,31 +196,7 @@
         font-size: 14px !important;
       }
       
-      /* Navbar adjustment for mobile | 移动端导航栏调整 */
-      .app-nav {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        background-color: #f5f7fa !important;
-        z-index: 100 !important;
-        padding: 15px !important;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-        margin: 0 !important;
-      }
-      
-      /* Ensure navbar items are centered and symmetric | 确保导航栏项目居中对称 */
-      .app-nav ul {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        padding: 0 !important;
-        margin: 0 !important;
-      }
-      
-      .app-nav li {
-        margin: 0 10px !important;
-      }
+
       
       /* Headings adjustment | 标题调整 */
       .markdown-section h1 {
@@ -283,18 +299,7 @@
         z-index: 1000 !important;
       }
       
-      /* Navbar adjustment | 导航栏调整 */
-      .app-nav {
-        padding: 10px !important;
-      }
-      
-      .app-nav li {
-        margin-right: 10px !important;
-      }
-      
-      .app-nav a {
-        font-size: 14px !important;
-      }
+
       
       /* Search box adjustment | 搜索框调整 */
       .search {
@@ -355,39 +360,7 @@
       color: #667eea !important;
     }
     
-    /* Navbar styles | 导航栏样式 */
-    .app-nav {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-    }
-    
-    .app-nav li {
-      margin-right: 15px;
-    }
-    
-    .app-nav a {
-      color: #4a4a6a !important;
-      text-decoration: none !important;
-      font-weight: 500 !important;
-      transition: all 0.3s ease !important;
-      border-bottom: none !important;
-    }
-    
-    .app-nav a:hover {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      border-bottom: none !important;
-    }
-    
-    .app-nav a.active {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      font-weight: 600 !important;
-      border-bottom: none !important;
-    }
+
     
     /* Override docsify default green color | 覆盖docsify默认绿色 */
     :root {
@@ -462,4 +435,84 @@
     .MathJax_SVG text {
       fill: #000000 !important;
       stroke: #000000 !important;
+    }
+    
+    /* Studio home link with triangle badge | 工作室主页链接与三角标 */
+    .studio-home-link {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 1000;
+      text-decoration: none;
+    }
+    
+    .triangle-badge {
+      width: 160px;
+      height: 160px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      transform: rotate(45deg);
+      transform-origin: center;
+      margin-top: -80px;
+      margin-right: -80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .triangle-badge:hover {
+      transform: rotate(45deg) scale(1.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .triangle-badge svg {
+      width: 32px;
+      height: 32px;
+      transform: rotate(-45deg) translate(-32px, 32px);
+      transition: all 0.3s ease;
+    }
+    
+    .studio-home-link:hover .triangle-badge svg {
+      transform: rotate(-45deg) translate(-32px, 32px) scale(1.2);
+    }
+    
+    /* Responsive design for mobile devices | 移动端响应式设计 */
+    @media screen and (max-width: 768px) {
+      .triangle-badge {
+        width: 120px;
+        height: 120px;
+        margin-top: -60px;
+        margin-right: -60px;
+      }
+      
+      .triangle-badge svg {
+        width: 24px;
+        height: 24px;
+        transform: rotate(-45deg) translate(-24px, 24px);
+      }
+      
+      .studio-home-link:hover .triangle-badge svg {
+        transform: rotate(-45deg) translate(-24px, 24px) scale(1.2);
+      }
+    }
+    
+    @media screen and (max-width: 480px) {
+      .triangle-badge {
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+        margin-right: -50px;
+      }
+      
+      .triangle-badge svg {
+        width: 20px;
+        height: 20px;
+        transform: rotate(-45deg) translate(-20px, 20px);
+      }
+      
+      .studio-home-link:hover .triangle-badge svg {
+        transform: rotate(-45deg) translate(-20px, 20px) scale(1.2);
+      }
     }

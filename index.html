@@ -44,6 +44,14 @@
 <body>
   <div id="app"></div>
   <div class="watermark"></div>
+  <!-- Studio home link with triangle badge -->
+  <a href="https://excursion-studio.github.io" class="studio-home-link" target="_blank" title="前往工作室主页">
+    <div class="triangle-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+    </div>
+  </a>
   <script>
     // Synchronously read the main title from README.md as default | 同步读取README.md的大标题作为默认值
     let tutorialTitle = '远行工作室'; // Default value, will be overridden below | 默认值，将在下面被覆盖
@@ -95,7 +103,7 @@
     window.$docsify = {
       name: tutorialTitle,
       loadSidebar: true,
-      loadNavbar: true, // Enable navbar | 启用导航栏
+      loadNavbar: false, // Disable navbar | 禁用导航栏
       basePath: './docs', // Set base path to docs directory | 设置基础路径为docs目录
       subMaxLevel: 3,
       // MathJax for math formulas | 数学公式支持
