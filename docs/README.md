@@ -218,3 +218,12 @@
 2. 《Multi-Objective Optimization: Principles and Case Studies》，Kalyanmoy Deb
 3. 《Optimization on Manifolds》，P.-A. Absil, R. Mahony, R. Sepulchre
 4. 《概率机器人》，Sebastian Thrun，清华大学出版社
+
+## 联系我们
+目前教程正处在框架搭建阶段、许多内容仅为走马观花，大量细节亟待完善。
+
+如果您在学习过程中遇到任何问题，或者对教程的改进有任何建议，欢迎联系我们：
+
+- Official Repository: [https://excursion-studio.github.io/convex-optimization/](https://github.com/Excursion-Studio/convex-optimization)
+
+- Email: [excursion-studio@outlook.com](mailto:excursion-studio@outlook.com)
